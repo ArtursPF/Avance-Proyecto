@@ -1,0 +1,56 @@
+package juego;
+
+import personajes.Personaje;
+import personajes.Enemigo;
+import java.util.Scanner;
+
+/**
+ * Clase principal que controla la lógica del juego.
+ * Simula una pelea entre un jugador y un enemigo.
+ */
+public class Juego {
+
+    /**
+     * Método principal que inicia la ejecución del juego.
+     *
+     * @param args Argumentos de línea de comandos (no utilizados).
+     */
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Crear el jugador y el enemigo
+        Personaje jugador = new Personaje("Jugador", 100, 20) {};
+        Enemigo enemigo = new Enemigo("Enemigo", 80, 15);
+
+        System.out.println("¡Comienza la batalla!");
+
+        // Bucle principal del juego que se ejecuta mientras ambos personajes estén vivos
+        while (jugador.estaVivo() && enemigo.estaVivo()) {
+            System.out.println("\nTurno del jugador:");
+            System.out.println("1. Atacar");
+            System.out.print("Elige una opción: ");
+            int opcion = scanner.nextInt();
+
+            // El jugador ataca
+            if (opcion == 1) {
+                jugador.atacar(enemigo);
+            }
+
+            // El enemigo ataca si aún está vivo
+            if (enemigo.estaVivo()) {
+                System.out.println("\nTurno del enemigo:");
+                enemigo.atacar(jugador);
+            }
+        }
+
+        // Verificar quién ganó la batalla
+        if (jugador.estaVivo()) {
+            System.out.println("\n¡El jugador ha ganado!");
+        } else {
+            System.out.println("\nEl enemigo ha ganado.");
+        }
+
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
