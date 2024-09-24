@@ -1,0 +1,31 @@
+package personajes;
+
+/**
+ * Clase que representa a un enemigo en el juego.
+ * El enemigo extiende de la clase abstracta Personaje.
+ */
+public class Enemigo extends Personaje {
+
+    /**
+     * Constructor para inicializar los atributos del enemigo.
+     *
+     * @param nombre Nombre del enemigo.
+     * @param vida   Puntos de vida del enemigo.
+     * @param ataque Puntos de ataque del enemigo.
+     */
+    public Enemigo(String nombre, int vida, int ataque) {
+        super(nombre, vida, ataque);
+    }
+
+    /**
+     * Realiza un ataque al personaje enemigo.
+     * El ataque se imprime en la consola.
+     *
+     * @param enemigo El personaje al que se está atacando.
+     */
+    @Override
+    public void atacar(Personaje enemigo) {
+        System.out.println("El enemigo " + nombre + " ataca!");
+        super.atacar(enemigo);
+    }
+}
