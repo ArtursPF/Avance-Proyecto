@@ -1,0 +1,63 @@
+package personajes;
+
+/**
+ * Clase abstracta que representa un personaje genérico en el juego.
+ * Un personaje tiene un nombre, una cantidad de vida y una capacidad de ataque.
+ */
+public abstract class Personaje {
+    protected String nombre;
+    protected int vida;
+    protected int ataque;
+
+    /**
+     * Constructor para inicializar los atributos de un personaje.
+     *
+     * @param nombre Nombre del personaje.
+     * @param vida   Puntos de vida del personaje.
+     * @param ataque Puntos de ataque del personaje.
+     */
+    public Personaje(String nombre, int vida, int ataque) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.ataque = ataque;
+    }
+
+    /**
+     * Verifica si el personaje sigue vivo (su vida es mayor que 0).
+     *
+     * @return true si el personaje está vivo, false en caso contrario.
+     */
+    public boolean estaVivo() {
+        return vida > 0;
+    }
+
+    /**
+     * Reduce la vida del personaje cuando recibe daño.
+     *
+     * @param cantidad La cantidad de daño recibido.
+     */
+    public void recibirDanio(int cantidad) {
+        vida -= cantidad;
+        if (vida < 0) vida = 0;
+        System.out.println(nombre + " recibió " + cantidad + " de daño. Vida restante: " + vida);
+    }
+
+    /**
+     * Realiza un ataque a otro personaje.
+     *
+     * @param enemigo El personaje al que se está atacando.
+     */
+    public void atacar(Personaje enemigo) {
+        System.out.println(nombre + " ataca a " + enemigo.nombre + " causando " + ataque + " de daño.");
+        enemigo.recibirDanio(ataque);
+    }
+
+    /**
+     * Obtiene el nombre del personaje.
+     *
+     * @return Nombre del personaje.
+     */
+    public String getNombre() {
+        return nombre;
+    }
+}
