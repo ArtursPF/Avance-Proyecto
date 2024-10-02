@@ -1,0 +1,29 @@
+/**
+ * Clase que representa un enemigo volador.
+ * Extiende de la clase Enemigo.
+ */
+class EnemigoVolador extends Enemigo {
+    private int alturaVuelo;
+
+    /**
+     * Constructor de la clase EnemigoVolador.
+     *
+     * @param nombre       Nombre del enemigo.
+     * @param vida         Vida del enemigo.
+     * @param danio        Daño que inflige el enemigo.
+     * @param alturaVuelo  Altura a la que vuela el enemigo.
+     */
+    public EnemigoVolador(String nombre, int vida, int danio, int alturaVuelo) {
+        super(nombre, vida, danio);
+        this.alturaVuelo = alturaVuelo;
+    }
+
+    /**
+     * Método que sobrescribe el ataque del enemigo volador,
+     * especificando que ataca desde el aire.
+     */
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " ataca desde el aire a una altura de " + alturaVuelo + " metros con " + danio + " puntos de daño.");
+    }
+}
