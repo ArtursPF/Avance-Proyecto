@@ -1,0 +1,30 @@
+
+/**
+ * Clase que representa un enemigo mágico.
+ * Extiende de la clase Enemigo.
+ */
+class EnemigoMagico extends Enemigo {
+    private int poderMagico;
+
+    /**
+     * Constructor de la clase EnemigoMagico.
+     *
+     * @param nombre      Nombre del enemigo.
+     * @param vida        Vida del enemigo.
+     * @param danio       Daño que inflige el enemigo.
+     * @param poderMagico Poder mágico del enemigo.
+     */
+    public EnemigoMagico(String nombre, int vida, int danio, int poderMagico) {
+        super(nombre, vida, danio);
+        this.poderMagico = poderMagico;
+    }
+
+    /**
+     * Método que sobrescribe el ataque del enemigo mágico,
+     * especificando que usa un ataque mágico.
+     */
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " usa un ataque mágico con " + poderMagico + " puntos de poder, causando " + danio + " puntos de daño.");
+    }
+}
