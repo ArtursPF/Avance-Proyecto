@@ -1,0 +1,29 @@
+/**
+ * Clase que representa un enemigo acuático.
+ * Extiende de la clase Enemigo.
+ */
+class EnemigoAcuatico extends Enemigo {
+    private int velocidadNado;
+
+    /**
+     * Constructor de la clase EnemigoAcuatico.
+     *
+     * @param nombre       Nombre del enemigo.
+     * @param vida         Vida del enemigo.
+     * @param danio        Daño que inflige el enemigo.
+     * @param velocidadNado Velocidad de nado del enemigo.
+     */
+    public EnemigoAcuatico(String nombre, int vida, int danio, int velocidadNado) {
+        super(nombre, vida, danio);
+        this.velocidadNado = velocidadNado;
+    }
+
+    /**
+     * Método que sobrescribe el ataque del enemigo acuático,
+     * especificando que ataca bajo el agua.
+     */
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " ataca con " + danio + " puntos de daño bajo el agua a una velocidad de " + velocidadNado + " m/s.");
+    }
+}
