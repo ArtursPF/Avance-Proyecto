@@ -1,0 +1,29 @@
+/**
+ * Clase que representa un enemigo gigante.
+ * Extiende de la clase Enemigo.
+ */
+class EnemigoGigante extends Enemigo {
+    private int tamano;
+
+    /**
+     * Constructor de la clase EnemigoGigante.
+     *
+     * @param nombre  Nombre del enemigo.
+     * @param vida    Vida del enemigo.
+     * @param danio   Daño que inflige el enemigo.
+     * @param tamano  Tamaño del enemigo en metros.
+     */
+    public EnemigoGigante(String nombre, int vida, int danio, int tamano) {
+        super(nombre, vida, danio);
+        this.tamano = tamano;
+    }
+
+    /**
+     * Método que sobrescribe el ataque del enemigo gigante,
+     * especificando que ataca con su gran tamaño.
+     */
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " ataca con su enorme tamaño de " + tamano + " metros, causando " + danio + " puntos de daño.");
+    }
+}
