@@ -1,0 +1,30 @@
+
+/**
+ * Clase que representa un enemigo terrestre.
+ * Extiende de la clase Enemigo.
+ */
+class EnemigoTerrestre extends Enemigo {
+    private int velocidad;
+
+    /**
+     * Constructor de la clase EnemigoTerrestre.
+     *
+     * @param nombre   Nombre del enemigo.
+     * @param vida     Vida del enemigo.
+     * @param danio    Daño que inflige el enemigo.
+     * @param velocidad Velocidad del enemigo en tierra.
+     */
+    public EnemigoTerrestre(String nombre, int vida, int danio, int velocidad) {
+        super(nombre, vida, danio);
+        this.velocidad = velocidad;
+    }
+
+    /**
+     * Método que sobrescribe el ataque del enemigo terrestre,
+     * especificando que ataca en tierra.
+     */
+    @Override
+    public void atacar() {
+        System.out.println(nombre + " ataca en tierra a una velocidad de " + velocidad + " km/h con " + danio + " puntos de daño.");
+    }
+}
