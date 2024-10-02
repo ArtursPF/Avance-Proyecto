@@ -1,57 +1,25 @@
-package juego;
-
-import personajes.Personaje;
-import personajes.Enemigo;
-import java.util.Scanner;
-
 /**
- * Clase principal que controla la lógica del juego.
- * Simula una pelea entre un jugador y un enemigo.
+ * Clase principal para ejecutar el juego y probar los enemigos.
  */
 public class Juego {
-
     /**
-     * Método principal que inicia la ejecución del juego.
+     * Método principal que ejecuta el programa.
      *
-     * @param args Argumentos de línea de comandos (no utilizados).
+     * @param args Argumentos de la línea de comandos.
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Crear enemigos representativos de cada grupo
+        EnemigoVolador dragon = new EnemigoVolador("Dragón", 100, 20, 50);
+        EnemigoAcuatico tiburon = new EnemigoAcuatico("Tiburón", 80, 15, 10);
+        EnemigoTerrestre golem = new EnemigoTerrestre("Gólem", 120, 25, 5);
+        EnemigoMagico hechicero = new EnemigoMagico("Hechicero", 60, 30, 40);
+        EnemigoGigante troll = new EnemigoGigante("Troll", 150, 35, 10);
 
-        // Crear el jugador y el enemigo
-        Personaje jugador = new Personaje("Jugador", 100, 20) {};
-        Enemigo enemigo = new Enemigo("Enemigo", 80, 15);
-
-        System.out.println("¡Comienza la batalla!");
-
-        // Bucle principal del juego que se ejecuta mientras ambos personajes estén vivos
-        while (jugador.estaVivo() && enemigo.estaVivo()) {
-            System.out.println("\nTurno del jugador:");
-            System.out.println("1. Atacar");
-            System.out.print("Elige una opción: ");
-            int opcion = scanner.nextInt();
-
-            // El jugador ataca
-            if (opcion == 1) {
-                jugador.atacar(enemigo);
-            }
-
-            // El enemigo ataca si aún está vivo
-            if (enemigo.estaVivo()) {
-                System.out.println("\nTurno del enemigo:");
-                enemigo.atacar(jugador);
-            }
-        }
-
-        // Verificar quién ganó la batalla
-        if (jugador.estaVivo()) {
-            System.out.println("\n¡El jugador ha ganado!");
-        } else {
-            System.out.println("\nEl enemigo ha ganado.");
-        }
-
-        // Cerrar el scanner
-        scanner.close();
+        // Polimorfismo: todos pueden atacar
+        dragon.atacar();
+        tiburon.atacar();
+        golem.atacar();
+        hechicero.atacar();
+        troll.atacar();
     }
 }
-
