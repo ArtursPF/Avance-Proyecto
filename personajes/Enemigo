@@ -1,31 +1,39 @@
-package personajes;
-
 /**
- * Clase que representa a un enemigo en el juego.
- * El enemigo extiende de la clase abstracta Personaje.
+ * Clase base que representa un enemigo genérico.
  */
-public class Enemigo extends Personaje {
+class Enemigo {
+    protected String nombre;
+    protected int vida;
+    protected int danio;
 
     /**
-     * Constructor para inicializar los atributos del enemigo.
+     * Constructor de la clase Enemigo.
      *
      * @param nombre Nombre del enemigo.
-     * @param vida   Puntos de vida del enemigo.
-     * @param ataque Puntos de ataque del enemigo.
+     * @param vida   Vida del enemigo.
+     * @param danio  Daño que el enemigo puede infligir.
      */
-    public Enemigo(String nombre, int vida, int ataque) {
-        super(nombre, vida, ataque);
+    public Enemigo(String nombre, int vida, int danio) {
+        this.nombre = nombre;
+        this.vida = vida;
+        this.danio = danio;
     }
 
     /**
-     * Realiza un ataque al personaje enemigo.
-     * El ataque se imprime en la consola.
-     *
-     * @param enemigo El personaje al que se está atacando.
+     * Método que permite al enemigo atacar.
+     * Este método es sobrescrito por las clases derivadas.
      */
-    @Override
-    public void atacar(Personaje enemigo) {
-        System.out.println("El enemigo " + nombre + " ataca!");
-        super.atacar(enemigo);
+    public void atacar() {
+        System.out.println(nombre + " ataca con " + danio + " puntos de daño.");
+    }
+
+    /**
+     * Método que reduce la vida del enemigo al recibir daño.
+     *
+     * @param danioRecibido Cantidad de daño que recibe el enemigo.
+     */
+    public void recibirDanio(int danioRecibido) {
+        vida -= danioRecibido;
+        System.out.println(nombre + " recibió " + danioRecibido + " de daño. Vida restante: " + vida);
     }
 }
